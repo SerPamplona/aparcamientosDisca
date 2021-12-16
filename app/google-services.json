@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "342617603309",
+    "firebase_url": "https://aparcamientodisponible-default-rtdb.firebaseio.com",
+    "project_id": "aparcamientodisponible",
+    "storage_bucket": "aparcamientodisponible.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342617603309:android:0f8132ab998f8022c4e0e4",
+        "android_client_info": {
+          "package_name": "com.sergiop.aparcamientodisponible"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342617603309-cgq96vjugcft08h9ct58m8e5d3vqah7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEmkJJxQPSJ9DgYgdbM3Up7mySrWNw0p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342617603309-cgq96vjugcft08h9ct58m8e5d3vqah7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342617603309:android:0e58a30314760c8cc4e0e4",
+        "android_client_info": {
+          "package_name": "com.sergiop.aparcamientos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342617603309-cgq96vjugcft08h9ct58m8e5d3vqah7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEmkJJxQPSJ9DgYgdbM3Up7mySrWNw0p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342617603309-cgq96vjugcft08h9ct58m8e5d3vqah7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

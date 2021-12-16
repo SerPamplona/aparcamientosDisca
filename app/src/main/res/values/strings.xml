@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">aparcamientos</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_parking">ParkingActivity</string>
+    <string name="title_activity_list_parking">ListParkingActivity</string>
+    <string name="title_activity_details">DetailsActivity</string>
+</resources>
