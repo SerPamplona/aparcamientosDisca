@@ -80,3 +80,7 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+## Contraseñas+
+contraseñas.txt
+password.txt

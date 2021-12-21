@@ -13,7 +13,7 @@ buildscript {
         // hilt plugin
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.37'
 
-        
+
         // real M
         classpath "io.realm:realm-gradle-plugin:10.8.0"
 
