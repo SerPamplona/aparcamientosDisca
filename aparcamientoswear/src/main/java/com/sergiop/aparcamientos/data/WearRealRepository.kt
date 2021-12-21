@@ -1,18 +1,13 @@
 package com.sergiop.aparcamientos.data
 
-import android.app.Person
 import android.location.Location
 import android.util.Log
 import com.google.android.gms.wearable.DataClient
 import com.google.android.gms.wearable.PutDataMapRequest
 import com.google.android.gms.wearable.PutDataRequest
-import com.sergiop.aparcamientos.USER_KEY
-import com.sergiop.aparcamientos.model.Persona
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import kotlin.random.Random
 
 class WearRealRepository(private val wearClient : DataClient) : DataRepository {
 

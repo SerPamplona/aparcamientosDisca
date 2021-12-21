@@ -3,12 +3,10 @@ package com.sergiop.aparcamientos.services
 import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.wearable.*
-import com.sergiop.aparcamientos.activity.COUNT_KEY
 import com.sergiop.aparcamientos.activity.NEAR_GARAGE_KEY
 import com.sergiop.aparcamientos.activity.USER_KEY
 import com.sergiop.aparcamientos.settings.data.UserSettings
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 private const val TAG = "DataLayerSample"
