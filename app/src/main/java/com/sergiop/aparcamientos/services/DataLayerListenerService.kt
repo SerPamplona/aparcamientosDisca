@@ -30,33 +30,42 @@ class DataLayerListenerService : WearableListenerService() {
 
         // Loop through the events and send a message
         // to the node that created the data item.
-        dataEvents  .map { it.dataItem.uri }
-                    .forEach { uri ->
-                        if (uri.path?.compareTo(LOGIN_OPERATION) == 0) {
-                            val putDataReq: PutDataRequest = PutDataMapRequest.create(
-                                LOGIN_OPERATION_RESPONSE).run {
-                                dataMap.putString(USER_KEY, userSetting.username)
-                                dataMap.putLong("Time", System.currentTimeMillis())
-                                asPutDataRequest()
-                            }
+        dataEvents.forEach {
+            val uri = it.dataItem.uri
 
-                            val putDataTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
-                            putDataTask.addOnSuccessListener {
-                                Log.v("DataLayerListenerService","Dato enviado desde el teléfono")
-                            }
-                        } else if (uri.path?.compareTo(NEAR_GARAGE_OPERATION) == 0) {
-                            val putDataReq: PutDataRequest = PutDataMapRequest.create(
-                                NEAR_GARAGE_OPERATION_RESPONSE).run {
-                                dataMap.putString(NEAR_GARAGE_KEY, "Plaza de Zaragoza")
-                                dataMap.putLong("Time", System.currentTimeMillis())
-                                asPutDataRequest()
-                            }
+            if (uri.path?.compareTo(LOGIN_OPERATION) == 0) {
+                val putDataReq: PutDataRequest = PutDataMapRequest.create(
+                    LOGIN_OPERATION_RESPONSE).run {
+                    dataMap.putString(USER_KEY, userSetting.username)
+                    dataMap.putLong("Time", System.currentTimeMillis())
+                    asPutDataRequest()
+                }
 
-                            val putDataTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
-                            putDataTask.addOnSuccessListener {
-                                Log.v("DataLayerListenerService","Dato enviado desde el teléfono")
-                            }
-                        }
-                    }
+                val putDataTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
+                putDataTask.addOnSuccessListener {
+                    Log.v("DataLayerListenerService","Dato LOGIN enviado desde el teléfono")
+                }
+            } else if (uri.path?.compareTo(NEAR_GARAGE_OPERATION) == 0) {
+                DataMapItem.fromDataItem(it.dataItem).dataMap.apply {
+                    val latitude = this.get<Double>("latitude")
+                    val longitude = this.get<Double>("longitude")
+
+                    Log.v("DataLayerListenerService","Location $latitude, $longitude")
+                }
+
+                val putDataReq: PutDataRequest = PutDataMapRequest.create(
+                    NEAR_GARAGE_OPERATION_RESPONSE).run {
+                    dataMap.putString(NEAR_GARAGE_KEY, "Garage Sergio Pamplona Zaragoza")
+                    dataMap.putLong("Time", System.currentTimeMillis())
+                    asPutDataRequest()
+                }
+
+                val putDataTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
+                putDataTask.addOnSuccessListener {
+                    Log.v("DataLayerListenerService","Dato GARAGE enviado desde el teléfono")
+                }
+
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ import com.google.android.gms.wearable.DataEvent
 import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.sergiop.aparcamientos.AparcamientoWearApplication
+import com.sergiop.aparcamientos.NEAR_GARAGE_KEY
 import com.sergiop.aparcamientos.USER_KEY
 import com.sergiop.aparcamientos.data.DataRepository
 import com.sergiop.aparcamientos.data.LOGIN_OPERATION_RESPONSE
@@ -63,11 +64,17 @@ class LoginViewModel @Inject constructor(   private val repository : DataReposit
                 .oneFix()
                 .start { location ->
                     location?.let {
+
                         _stateLocation.value = LocationState(
                             isLoading = false,
                             error = false,
-                            location = location
+                            location = it
                         )
+
+                        viewModelScope.launch {
+                            val valueResult = async { repository.nearGarage(it) }
+                            valueResult.await()
+                        }
                     }
                 }
 
@@ -95,10 +102,13 @@ class LoginViewModel @Inject constructor(   private val repository : DataReposit
                         }
                     } else if (item.uri.path?.compareTo(NEAR_GARAGE_OPERATION_RESPONSE) == 0) {
                         DataMapItem.fromDataItem(item).dataMap.apply {
-                            val userLogin = this.get<String>(USER_KEY)
-                            _stateLogin.value = LoginState(  isLoading = false,
-                                requestSend = true,
-                                userLogged = Persona(username = userLogin))
+                            val nearGarage = this.get<String>(NEAR_GARAGE_KEY)
+
+                            _stateLocation.value = LocationState(
+                                isLoading = false,
+                                error = false,
+                                plazaNameNear = nearGarage
+                            )
                         }
                     }
                 }

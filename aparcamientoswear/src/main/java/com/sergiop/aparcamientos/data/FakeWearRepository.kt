@@ -1,5 +1,6 @@
 package com.sergiop.aparcamientos.data
 
+import android.location.Location
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -25,7 +26,7 @@ class FakeWearRepository : DataRepository {
 
     }
 
-    override suspend fun nearGarage(): Result<Boolean> {
+    override suspend fun nearGarage(location: Location): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             Result.success(true)
         }

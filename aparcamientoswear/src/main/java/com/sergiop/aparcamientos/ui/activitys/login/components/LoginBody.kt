@@ -70,10 +70,16 @@ fun locationBody(loginViewModel: LoginViewModel,
     if (stateLocation.error) {
         KOBody(    stateLocation.messageError,
                 retryAgain = {startLocation})
-    } else if ((!stateLocation.error) && (stateLocation.location != null)) {
-        OKBody("Localización\n " +
-                "${stateLocation.location.longitude}, ${stateLocation.location.latitude}",
-            retryAgain = startLocation)
+    } else if ((!stateLocation.error) && (!stateLocation.isLoading)) {
+        if (stateLocation.location != null) {
+            OKBody("Localización enviada\n " +
+                    "${stateLocation.location.longitude}, ${stateLocation.location.latitude}",
+                retryAgain = startLocation)
+        } else if (stateLocation.plazaNameNear != null) {
+            OKBody("Plaza Cercana\n " +
+                    "${stateLocation.plazaNameNear}",
+                retryAgain = startLocation)
+        }
     } else if (stateLocation.isLoading){
         loadingBody("Buscando localización...")
     }

@@ -5,5 +5,5 @@ import com.sergiop.aparcamientos.model.Persona
 
 interface DataRepository {
     suspend fun login() : Result<Boolean>
-    suspend fun nearGarage() : Result<Boolean>
+    suspend fun nearGarage(location : Location) : Result<Boolean>
 }
