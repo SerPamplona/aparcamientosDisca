@@ -11,8 +11,6 @@ const val ROOM = "ROOM"
 
 const val BBDD_SYSTEM = REALM
 
-
-
 // CONSTANTES APP MODEL
 const val COUNT_KEY = "count-key"
 const val USER_KEY = "user-key"
