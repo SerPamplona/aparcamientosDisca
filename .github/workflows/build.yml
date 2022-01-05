@@ -40,17 +40,3 @@ jobs:
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assembleDebug"
-          
-      - name: Send email OK
-        uses: devellany/send-mailer@v1.0.2
-        with:
-          host: smtp.google.com
-          port: 465
-          account: ${{secrets.ACCOUNT}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          sender: devellany
-          from: ${{secrets.MAIL_ADDRESS}}
-          to: pamplona_sergio@hotmail.com
-          subject: Compilación GITHUB CORRECTA
-          body: Las compilación ha sido correcta
-          contentType: text/plain
