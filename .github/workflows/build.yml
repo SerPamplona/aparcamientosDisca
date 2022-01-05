@@ -35,6 +35,10 @@ jobs:
           java-version: '11'
           cache: 'gradle'
 
+      # Runs a single command using the runners shell
+      - name: Persmisos gradlew
+        run: chmod +x gradlew
+
       # Runs a set of commands using the runners shell
       - name: "Build Android project"
         uses: vgaidarji/android-github-actions-build@v1.0.1
