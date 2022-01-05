@@ -238,7 +238,7 @@ private fun checkAutoLogin (onChecked : (Boolean) -> Unit) {
             mutableStateOf(false)
         }
 
-        Text(text = "¿Autologin?")
+        Text(text = "¿Autologin GITHUB?")
         Spacer(modifier = Modifier.height(20.dp))
         Switch(checked = isChecked, onCheckedChange = {
                 isChecked = it
