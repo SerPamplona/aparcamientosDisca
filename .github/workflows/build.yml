@@ -32,7 +32,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: "Build Android project"
         uses: vgaidarji/android-github-actions-build@v1.0.1
-          
+        
+      # Runs a set of commands using the runners shell
+      - name: "Run LS"
+        run: ls -la
+        
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
