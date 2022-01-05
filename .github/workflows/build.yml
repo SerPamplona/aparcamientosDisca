@@ -29,22 +29,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Setup JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'
-          java-version: '8'
-          cache: 'gradle'
-
-      # Runs a single command using the runners shell
-      - name: Persmisos gradlew
-        run: chmod +x gradlew
-
       # Runs a set of commands using the runners shell
       - name: "Build Android project"
         uses: vgaidarji/android-github-actions-build@v1.0.1
-        with:
-          args: "./gradlew assembleDebug"
           
       - name: Upload APK
         uses: actions/upload-artifact@v1
