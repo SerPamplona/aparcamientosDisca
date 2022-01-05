@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+name: build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    
+      # Runs a single command using the runners shell
+      - name: Begin
+        run: echo Comenzando compilación de proyecto...
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cache: 'gradle'
+
+      # Runs a set of commands using the runners shell
+      - name: "Build Android project"
+        uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+          args: "./gradlew assembleDebug"
+          
+      - name: Send email OK
+        uses: devellany/send-mailer@v1.0.2
+        with:
+          host: smtp.google.com
+          port: 465
+          account: ${{secrets.ACCOUNT}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          sender: devellany
+          from: ${{secrets.MAIL_ADDRESS}}
+          to: pamplona_sergio@hotmail.com
+          subject: Compilación GITHUB CORRECTA
+          body: Las compilación ha sido correcta
+          contentType: text/plain
