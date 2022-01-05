@@ -29,10 +29,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-java@v2
+      - name: Setup JDK
+        uses: actions/setup-java@v2
         with:
-          distribution: 'temurin'
-          java-version: '11'
+          java-version: 1.8
           cache: 'gradle'
 
       # Runs a single command using the runners shell
@@ -44,3 +44,9 @@ jobs:
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assembleDebug"
+          
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk 
