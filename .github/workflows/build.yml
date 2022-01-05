@@ -37,6 +37,10 @@ jobs:
       - name: "Run LS"
         run: ls -la
         
+      # Runs a set of commands using the runners shell
+      - name: "Run LS OUTPUT"
+        run: ls -la app/build/outputs/apk/debug/
+        
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
