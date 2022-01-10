@@ -45,3 +45,15 @@ jobs:
         with:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk 
+          
+      - name: UPLOAD Firebase App Distribution
+        uses: hasretsariyer/firebase-app-distribution-github-action@v1.0
+        with:
+          app_id: 1:342617603309:android:0e58a30314760c8cc4e0e4
+          # Path of IPA or APK file to distribution.
+          app_file: app/build/outputs/apk/debug/app-debug.apk 
+          firebase_token: 1//036BhQWVQGrqVCgYIARAAGAMSNwF-L9IrRFM4qZIo1OWE5ji0qGIZVAv_y0hoTBnJe_BThhcU5I6Z3AQHkzQ-Cxlr3fV5SVN0S-w
+          # Distribution groups
+          tester_groups: Familia
+          # Release notes for this build.
+          release_notes: Nueva version
