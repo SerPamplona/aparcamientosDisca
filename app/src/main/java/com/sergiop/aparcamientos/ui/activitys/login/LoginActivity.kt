@@ -18,8 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
@@ -238,7 +236,7 @@ private fun checkAutoLogin (onChecked : (Boolean) -> Unit) {
             mutableStateOf(false)
         }
 
-        Text(text = "¿Autologin GITHUB?")
+        Text(text = "¿Autologin GITHUB CLASE LUNES?")
         Spacer(modifier = Modifier.height(20.dp))
         Switch(checked = isChecked, onCheckedChange = {
                 isChecked = it
