@@ -10,6 +10,10 @@ plugins {
 
     // real M
     id 'realm-android'
+
+    // Apply the Performance Monitoring plugin
+    id 'com.google.firebase.firebase-perf'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -66,8 +70,6 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "androidx.compose.material:material-icons-extended:1.0.5"
 
-    implementation 'com.google.firebase:firebase-firestore:24.0.0'  // firebase
-    implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
 
     implementation 'com.google.android.gms:play-services-maps:18.0.1'   //mapas
     implementation 'com.google.android.gms:play-services-location:19.0.0'
@@ -127,6 +129,15 @@ dependencies {
 
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:2.3.0"
+
+    // firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    implementation 'com.google.firebase:firebase-perf-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

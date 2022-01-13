@@ -5,12 +5,14 @@ import android.content.Intent
 import android.location.Location
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -199,6 +201,7 @@ private fun LargoTextField(viewModel: RegisterViewModel){
 
     OutlinedTextField(
         value = largo,
+        //keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         onValueChange = {
             largo = it
             viewModel.largo = it.toString().toFloat()
@@ -207,6 +210,18 @@ private fun LargoTextField(viewModel: RegisterViewModel){
         modifier = Modifier.fillMaxWidth(),
     )
 }
+/**
+    //Si esta mal lo siento, pienso en java, la metodologia me imagino que estara bien
+private Float valorNuumerico (texto : String){
+// esta funcion como se encarga de coger el valor numerico, creo que no haria falta que fuera suspend
+    cadena : String[] = texto.split()
+    numerivo : StringBuilder
+    for ( valor : Char in cadena){
+        if(valor.toChar().toInt())
+            numerico.
+    }
+}
+ **/
 
 @Composable
 private fun AnchoTextField(viewModel: RegisterViewModel){
@@ -214,6 +229,7 @@ private fun AnchoTextField(viewModel: RegisterViewModel){
 
     OutlinedTextField(
         value = ancho,
+        //keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         onValueChange = {
             ancho = it
             viewModel.ancho = it.toString().toFloat()
